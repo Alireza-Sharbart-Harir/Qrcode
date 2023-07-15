@@ -10,7 +10,6 @@ class QrCode:
         tk.set_default_color_theme("dark-blue")
 
         self.root.title("QrCode Generator")
-        self.root.iconbitmap("Icon.ico")
         self.root.configure(bg= "#FAEBD7")
         self.root.geometry("800x550")
         self.root.resizable(False, False)
@@ -81,4 +80,3 @@ class QrCode:
         self.image_view.configure(image= "")
         self.entryerror.destroy()
 QrCode()
-input("Enter To Close...")
