@@ -45,9 +45,9 @@ class QrCode:
         self.icon_img = self.icon_img.resize((100, 100))
         self.icon_img.save("QrCode.png")
         
-        icon = PhotoImage(file= "QrCode.png")
+        self.icon = PhotoImage(file= "QrCode.png")
         self.icon_view.place(x= 25, y= 30)
-        self.icon_view.configure(image= icon)
+        self.icon_view.configure(image= self.icon)
 
         self.image_view = tk.CTkLabel(master= self.frame, text= "")
 
@@ -81,3 +81,4 @@ class QrCode:
         self.image_view.configure(image= "")
         self.entryerror.destroy()
 QrCode()
+input("Enter To Close...")
