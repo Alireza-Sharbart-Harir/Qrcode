@@ -1,5 +1,6 @@
 import customtkinter as tk
 from tkinter import *
+from PIL import Image
 import qrcode
 class QrCode:
     def __init__(self):
@@ -36,9 +37,17 @@ class QrCode:
         self.label2.place(x= 15, y= 420)
 
         self.icon_view = tk.CTkLabel(master= self.frame, text= "")
-        Icon = PhotoImage(file= "QrCode.png")
+        self.iconqr = qrcode.QRCode(version= 1, box_size=10, border= 2)
+        self.iconqr.add_data("https://github.com/Alireza-Sharbart-Harir/Qrcode")
+        self.iconqr.make()
+
+        self.icon_img = self.iconqr.make_image()
+        self.icon_img = self.icon_img.resize((100, 100))
+        self.icon_img.save("QrCode.png")
+        
+        icon = PhotoImage(file= "QrCode.png")
         self.icon_view.place(x= 25, y= 30)
-        self.icon_view.configure(image= Icon)
+        self.icon_view.configure(image= icon)
 
         self.image_view = tk.CTkLabel(master= self.frame, text= "")
 
